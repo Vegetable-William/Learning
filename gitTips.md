@@ -21,6 +21,7 @@ git status -s
 git add
 git add filename.format
 ## VS Code中用小加号(stage changes)
+## 这个命令也可以将发生冲突的文件标记为冲突已解决
 
 # 将暂存区的做一次提交
 git commit
@@ -34,20 +35,38 @@ git commit -am 'commitMessage'
 git restore
 git restore filename.format
 
-# 查看哪些地方对文件做了修改
-git diff
-
 # 切换其他分支
 git checkout
+# 创建并切换分支
+git checkout -b branchName
 
 # 新建其他的分支
 git branch
+# 查看所有分支和当前分支
+git branch -l
+# 创建并切换分支
+git branch branchName && git chechout branchName
+# 简便写法
+git checkout -b branchName
 
-# 合并其他分支；（经常需要解决冲突）
+# 合并其他分支（经常需要解决冲突）
 git merge
+## 处于现在的分支，合并另一个
+git merge branchName
+# VS Code中使用command palate，搜索merge；有冲突的话直接点修改
+## "C"表示conflict，表示文件有冲突
 
 # 临时保存当前工作的分支，切换到其他分支
+# 直接git stash
 git stash
+## 不能带着脏的状态到别的分支
+# 恢复之前工作的内容
+git stash pop
+# VS Code中点"..."，点stash；之后再pop stash
+
+# 查看哪些地方对文件做了修改
+git diff
+git diff filename.format
 ```
 
 ## 远程命令
